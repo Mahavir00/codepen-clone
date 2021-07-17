@@ -1,13 +1,13 @@
 import React from 'react'
 
 export default function FileExplorer(props) {
-    const {language,setLanguage,share,getCode,importLink,setImportLink}=props
+    const {language,setLanguage,share}=props
     return (
         <div className="explorer">
             {/* HTML Button */}
             <button 
                 className={(language==="html")?"pressed":"btn"} 
-                onClick={(language=='html')?()=>setLanguage(""):()=>setLanguage("html")}
+                onClick={(language==='html')?()=>setLanguage(""):()=>setLanguage("html")}
             >
                 HTML
             </button>
@@ -15,7 +15,7 @@ export default function FileExplorer(props) {
             {/* CSS Button */}
             <button 
                 className={(language==="css")?"pressed":"btn"} 
-                onClick={(language=='css')?()=>setLanguage(""):()=>setLanguage("css")}
+                onClick={(language==='css')?()=>setLanguage(""):()=>setLanguage("css")}
             >
                 CSS
             </button>
@@ -23,7 +23,7 @@ export default function FileExplorer(props) {
             {/* Js Button */}
             <button 
                 className={(language==="javascript")?"pressed":"btn"} 
-                onClick={(language=='javascript')?()=>setLanguage(""):()=>setLanguage("javascript")}
+                onClick={(language==='javascript')?()=>setLanguage(""):()=>setLanguage("javascript")}
             >
                 Js
             </button>

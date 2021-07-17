@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import qs from 'qs' //queryString to convert body of the POST request as per Postbin API requirements
 import axios from 'axios' //axios to make API calls
 
 import { useLocalStorage } from "../hooks/useLocalStorage"; //Custom hook to use local storage
@@ -18,7 +17,6 @@ function App() {
   const [srcDoc,setSrcDoc] = useState('') //document to be rendered live
   const [language,setLanguage]=useState("") //language editor currently being used
   const [popup,setPopup]=useState(false) //popup enable
-  const [importLink,setImportLink]=useState("") //import link entered by user
   const [pastebinLink,setPastebinLink]=useState("") //pastebin link generated
 
   //Live rendering using React effects which take place when any language code is modified
@@ -35,7 +33,8 @@ function App() {
     return () => clearTimeout(timeout)
   },[html,css,js])
 
-  const handleShare = async () => {
+  //POST request to pastebin, displaying response as popup
+  const share = async () => {
     try {
       const payload = {
         html: html,
@@ -53,52 +52,36 @@ function App() {
         headers: { 'Content-Type': 'multipart/form-data' }
       })
 
-      console.log(res)
+      const array = res.data.split('/')
+      const lastsegment = array[array.length - 1]
+      setPastebinLink('https://mahavir00.github.io/codepen-clone/?id=' + lastsegment)
+      setPopup(true)
     } catch (error) {
       console.log(error)
     }
   }
-  //POST request to postbin API and generating a URL
-  async function share() {
-    const response = await fetch("https://pastebin.com/api/api_post.php", {
-      method: 'POST',
-      headers:{
-        'Content-Type' : 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': 'http://localhost:3000',
-        'Access-Control-Allow-Credentials': 'true'
-      },
-      body: qs.stringify({
-        api_dev_key: "-_minsBkoasDP6qBhWXypBF5fzbyGNFT",
-        api_option: "paste",
-        api_paste_code: (language==="html")?html:((language==="css")?css:js),
-        api_paste_format: (language==="html")?"html5":language
-      })
-    })//.then(response => console.log(response)).catch(err=>console.log(err))
-    //setPastebinLink(response.url)     
-    console.log(response)
-  }
-
-  //GET request to postbin API and importing the code
-  function getCode() {
-    const response=''
-    let headers = new Headers();
-    headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
-    headers.append('Access-Control-Allow-Credentials', 'true');
-    const l='https://pastebin.com/raw/'+importLink.substr(importLink.length-8,8)
-    fetch(l,{
-      headers: headers
-    }).then(response => response.text()) .then(data => {
-      console.log(data)
-      // response=data
-    });
-      // if (language==="html") setHtml(response)
-      // else if (language==="css") setCss(response)
-      // else setJs(response)
-  }
-
+  
+  //GET request to pastebin and loading the code
+  useEffect(() => {
+    const fetchCodes = async () => {
+      try {
+        const queryParams = new URLSearchParams(window.location.search)
+        const pastebinId = queryParams.get('id')
+        const res = await axios.get('/raw/' + pastebinId, {
+          headers: { 'Content-Type': 'multipart/form-data' }
+        })
+        setHtml(res.data.html)
+        setCss(res.data.css)
+        setJs(res.data.js)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchCodes()
+  }, [])
 
   return (
-    <>
+    <div className="main">
     
     {/* Popup triggered to share Postbin URL generated */}
     <Popup trigger={popup} link={pastebinLink} setTrigger={setPopup}/>
@@ -108,10 +91,7 @@ function App() {
       <FileExplorer 
         language={language} 
         setLanguage={setLanguage} 
-        share={share} 
-        getCode={getCode} 
-        importLink={importLink} 
-        setImportLink={setImportLink}
+        share={share}
       />
       {/* Single Editor */}
       <Editor 
@@ -126,7 +106,7 @@ function App() {
       <iframe srcDoc={srcDoc} title="output" sandbox="allow-scripts" frameBorder="0" width="100%" height="100%"/>
     </div>
 
-    </>
+    </div>
   )
 }
 
