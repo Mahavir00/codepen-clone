@@ -18,5 +18,3 @@ cd codepen-clone
 npm i
 npm run start
 ```
-## Dependencies:
-
