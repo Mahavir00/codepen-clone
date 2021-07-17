@@ -47,7 +47,7 @@ function App() {
       form.append('api_paste_code', JSON.stringify(payload))
       const res = await axios({
         method: 'post',
-        url: '/api/api_post.php',
+        url: 'https://pastebin.com/api/api_post.php',
         data: form,
         headers: { 'Content-Type': 'multipart/form-data' }
       })
@@ -67,7 +67,7 @@ function App() {
       try {
         const queryParams = new URLSearchParams(window.location.search)
         const pastebinId = queryParams.get('id')
-        const res = await axios.get('/raw/' + pastebinId, {
+        const res = await axios.get('https://pastebin.com/raw/' + pastebinId, {
           headers: { 'Content-Type': 'multipart/form-data' }
         })
         setHtml(res.data.html)

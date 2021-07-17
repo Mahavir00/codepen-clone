@@ -22,6 +22,9 @@ body {
     flex: 1;
 }
 
+
+/* Editor Styles */
+
 .editor-container {
     flex-grow: 1;
     flex-basis: 0;
@@ -39,6 +42,9 @@ body {
     border-bottom-left-radius: .5rem;
     overflow: hidden;
 }
+
+
+/* File Explorer Styles */
 
 .explorer {
     display: flex;
@@ -89,6 +95,9 @@ body {
 .btn.postbin.submit {
     margin-left: 0.5rem;
 }
+
+
+/* Popup Styles */
 
 .popup {
     z-index: 5;
