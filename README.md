@@ -1,70 +1,9 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Dyte Campus Hiring Frontend Problem
+**Functionalities Implemented:**
+1. A “file explorer” pane that contains 3 files: index.html, index.css, index.js ✔ <br>![image](https://user-images.githubusercontent.com/53480608/126041559-0568427d-80a3-40ea-8714-84e462526f49.png)<br>*Handy top horizontal navbar to select the language file*
+2. A “code editor” that supports syntax highlighting for HTML, CSS, and JS. ✔<br>![image](https://user-images.githubusercontent.com/53480608/126041741-1e28e422-1e55-4b1c-bad0-f83e1b487789.png)<br>*Syntax Highlighting for HTML*<br>![image](https://user-images.githubusercontent.com/53480608/126041786-26548715-2a40-4534-87ef-823fa76c2e48.png)<br>*Syntax Highlighting for CSS*<br>![image](https://user-images.githubusercontent.com/53480608/126041804-3fe240ae-b74b-46ba-b51e-0bbc5f8d8c44.png)<br>*Syntax Highlighting for Js*<br>(Code from: https://www.w3schools.com/howto/howto_js_tabs.asp)
+3. A “live view” section to show the rendered HTML website. ✔ ![image](https://user-images.githubusercontent.com/53480608/126041853-8dbfc416-509f-4db5-851f-f02145c40349.png)
+4. Create a feature to save your code, and generate a shareable link that should show the saved code when the link is visited. ✔<br>![image](https://user-images.githubusercontent.com/53480608/126042082-6326b7cb-911c-44e8-ad4e-7115984b561e.png)<br>!!!Share functionalities not working on the deployment due to Pastebin API not accepting CORS.<br>
+5. Deploy your website on Github pages. ✔ 
+(https://mahavir00.github.io/codepen-clone/)
+# Getting Started
